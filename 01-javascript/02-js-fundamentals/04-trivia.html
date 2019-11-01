@@ -1,1 +1,56 @@
-<!-- 2 hours -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <title>Trivia</title>
+    <style>
+        #wrapper {
+            background-color: lightblue;
+            height: 500px;
+            width: 500px;
+        }
+
+        .main-div {
+            background-color: lightgreen;
+            height: 500px;
+            width: 500px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        $('#button').click(function() {
+            $.get("https://opentdb.com/api.php?amount=10&type=multiple", displayData);
+            $('#button').hide();
+            $('.main-div').slideToggle();
+        });
+
+        function displayData(data) {
+            counter = 0;
+            triviaQuestions = data.results;
+            for(var question of gameQuestions) {
+                counter += 1;
+                $('.main-div').append("Question #" + counter + "<br>");
+                $('.main-div').append("Question Category:" + question.category + "<br>");
+                $('.main-div').append("Question:" + question.question + "<br>");
+                $('.main-div').append("Correct Answer" + question.correct_answer + "<br>");
+                $('.main-div').append("Incorrect Answers:" + question.incorrect_answers + "<br>" + "<br>");
+            }
+        };
+        displayData(data);
+    </script>
+    <div id="wrapper">
+        <button id="button">Start Game</button>
+    </div>
+
+    <div class="main-div"></div>
+</body>
+</html>
