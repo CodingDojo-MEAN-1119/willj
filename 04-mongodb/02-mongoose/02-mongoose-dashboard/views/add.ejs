@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add New Owl</title>
+    <style>
+        #owlbox {
+            height: 500px;
+            width: 400px;
+            background-color: silver;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="owlbox">
+        <form action="/owl/add/new" method="POST">
+            <h2>Add Owl</h2>
+
+            <h3>Name</h3>
+            <input type="text" name="name" id="name" placeholder="Enter Owl name" required>
+
+            <h3>Age</h3>
+            <input type="text" name="age" id="age" placeholder="Enter Owl Age" required>
+
+            <h3>Habitat</h3>
+            <input type="text" name="habitat" id="habitat" placeholder="Enter Owl Habitat" required>
+
+            <input type="submit" value="Add Owl">
+        </form>
+    </div>
+</body>
+</html>

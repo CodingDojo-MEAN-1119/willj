@@ -1,0 +1,60 @@
+//1 
+use_intro_to_mongodb_db
+
+//2
+db.createCollection("students");
+
+//3 - 4
+db.students.insert({name: "Aaron", state: "Virginia", lnumber: 15, dob: {month: 06, day: 15, year: 1992}})
+db.students.insert({name: "Brian", state: "Alabama", lnumber: 12, dob: {month: 08, day: 22, year: 1997}})
+db.students.insert({name: "Will", state: "Delaware", lnumber: 8, dob: {month: 08, day: 8, year: 1998}})
+db.students.insert({name: "John", state: "Kansas", lnumber: 18, dob: {month: 03, day: 12, year: 1999}})
+
+//5 
+db.students.find()
+
+//6
+db.students.find({$or: [{state: "California"}, {state: "Washington"}])
+
+//7 
+db.students.find({number: {%gt: 3}})
+db.students.find({number: {%lte: 10}})
+db.students.find({$and:[{number: {$gte:1}}, {number: {$lte: 9}}]})
+
+//8 
+db.students.update({}, {$set: {interests:['coding', 'brunch', 'MongoDB']}})
+
+//9
+db.students.update({name: "Jake"}, {$push: {interests: 'video games'}})
+db.students.update({name: "Brian", {$push: {interests: 'cars'}}})
+db.students.update({name: "Will", {$push: {interests: 'plumbing'}}})
+
+//10
+db.students.update({name: "Aaron"}, {$push: {interests: 'taxes'}})
+
+// 11
+db.students.update({name:"Aaron"}, {$pull: {interests: 'taxes'}})
+
+// 12
+db.students.remove({state:"California"})
+
+// 13
+db.students.remove({name:"Brian"})
+
+// 14
+db.students.remove({lnumber:{$gt:5}}, true)
+
+// 15
+db.students.update({}, {$set: {number_of_belts:0}}, {multi:true})
+
+// 16
+db.students.update({state:"Washington"}, {$inc: {number_of_belts: 1}})
+
+// 17
+db.students.update({}, {$rename: {number_of_belts: 'belts_earned'}}, {multi:true})
+
+// 18
+db.students.update({}, {$unset: {lnumber:""}}, {multi:true})
+
+// 19
+db.students.update({}, {$currentDate: {updated_on: { $type: "date" }}}, {multi:true})

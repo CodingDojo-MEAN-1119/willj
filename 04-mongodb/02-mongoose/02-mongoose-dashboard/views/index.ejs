@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The American Owls</title>
+    <style>
+        #owlbox {
+            height: 500px;
+            width: 400px;
+            background-color: silver;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <a href='/'>Owls</a>
+
+    <div id="owlbox">
+        <% for (owl of all_owls) { %>
+            <h2>
+                Owl Tag ID: <%= owl.id %>
+            </h2>
+
+            <br>
+
+            <h3>
+                <a href="/owl/<%= owl.name %>">Owl Name: <%= owl.name %></a>
+            </h3>
+
+            <br>
+
+            <h3>
+                Age: <%= owl.age %>
+            </h3>
+
+            <br>
+
+            <h3>
+                Habitat: <%= owl.habitat %>
+            </h3>
+            <a href="/owl/<%= owl.name %>/edit">Edit Owl</a>
+            <a href="/owl/<%= owl.name %>/delete">Delete Owl</a>
+        <% } %>
+    </div>
+</body>
+</html>

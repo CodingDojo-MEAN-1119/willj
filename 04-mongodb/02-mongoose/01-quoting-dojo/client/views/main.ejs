@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add a Quote!</title>
+    <style>
+        #quotebox {
+            height: 300px;
+            width: 300px;
+            background-color: silver;
+            border-radius: 4px;
+        }
+
+        a {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="quotebox">
+        <h1>Add A Quote!</h1>
+        <form action="/add_quotes" method="POST">
+            <h2>Name:</h2>
+            <br>
+            <input type="text" placeholder="Enter your name" name="posted_by">
+
+            <br>
+
+            <h2>Quote:</h2>
+            <input type="text" placeholder="Enter your Quote" name="quote">
+            <br>
+            <input type="submit" value="Add Quote">
+        </form>
+    </div>
+
+    <p>Alternatively, you can click the link below to be redirected to the Quotes Page.</p>
+    <a href="/quotes">Quotes</a>
+</body>
+</html>

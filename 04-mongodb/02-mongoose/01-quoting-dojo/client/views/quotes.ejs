@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quotes</title>
+    <style>
+        #quotebox {
+            height: 300px;
+            width: 300px;
+            background-color: silver;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="quotebox">
+        <h2>Current Quotes:</h2>
+            <% for (quote of all_quotes) { %>
+                <p>
+                    <%= quote.createdAt.toLocaleTimeString() %> <%= quote.createdAt.toLocaleDateString() %>
+                    <br>
+                    <%= quote.posted_by %>
+                    <br>
+                    <%= quote.quote %>
+                </p>
+            <% } %>
+    </div>
+</body>
+</html>

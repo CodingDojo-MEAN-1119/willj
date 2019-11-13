@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Owls</title>
+    <style>
+        #owlbox {
+            height: 500px;
+            width: 400px;
+            background-color: silver;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="owlbox">
+        <h2>
+            Owl ID: <%= owls.id %>
+        </h2>
+
+        <h2>
+            <a href="/owl/<%= owls.name %>">Name: <%= owls.name %></a>
+        </h2>
+
+        <h2>
+            Age: <%= owls.age %> 
+        </h2>
+
+        <h2>
+            Habitat: <%= owls.habitat %>
+        </h2>
+
+        <a href="/owl/<%= owls.name/edit">Edit Owl</a>
+        <a href="/owl/<%= owls.name/delete">Remove Owl</a>
+    </div>
+</body>
+</html>

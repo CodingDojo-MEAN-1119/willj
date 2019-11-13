@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Owl</title>
+    <style>
+        #owlbox {
+            height: 700px;
+            width: 500px;
+            background-color: silver;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="owlbox">
+        <form action="/owl/<%= owls.name %>/edit/confirm" method="POST">
+            <h3>Editing Owl <%= owls.name %></h3>
+
+            <h3>Name</h3>
+            <input type="text" name="name" id="name" value="<%= owls.name %>">
+
+            <h3>Age</h3>
+            <input type="text" name="age" id="age" value="<%= owls.age %>">
+
+            <h3>Habitat</h3>
+            <input type="text" name="habitat" id="habitat" value="<%= owls.habitat %>">
+
+            <input type="submit" value="Confirm Modification">
+        </form>
+    </div>
+</body>
+</html>

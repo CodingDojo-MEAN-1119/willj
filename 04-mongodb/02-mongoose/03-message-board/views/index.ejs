@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Message Board</title>
+    <style>
+        #wrapper {
+            height: 800px;
+            width: 500px;
+            margin: auto;
+            background-color: lightblue;
+        }
+
+        #content-boxes {
+            height: 200px;
+            width: 480px;
+            border-radius: 4px;
+            background-color: lightgoldenrodyellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Message Board</h1>
+
+    <div id="wrapper">
+
+        <div id="content-boxes"
+            <form action="/" method="POST">
+                <h2>Add New Msg:</h2>
+                <h2>Name:</h2>
+                <input type="text" name="username" id="username">
+
+                <h2>Message</h2>
+                <textarea name="message" id="message" cols="40" rows="3"></textarea>
+                
+                <input type="submit" value="Submit">
+            </form>
+
+            <% if(messages.post_message) { %>
+                <% for (var message of messages.post_message) { %>
+                    <h3><%= message %></h3>
+                <% } %>
+            <% } %>
+        </div>
+
+        <% if (all_messages.length > 0) { %>
+            <div id="content-boxes">
+                <h2>All Messages</h2>
+                <% if(messages.post_comment) { %>
+                    <h2>Your comment could not be posted.</h2>
+                    <% for (var message of messages.post_comment) {%>
+                        <h3><%= message %></h3>
+                    <% } %>
+                <% } %>
+            </div>
+
+            <% for (var message of all_messages) { %>
+                <div class="content-boxes">
+                    <h2><%= message.username %></h2>
+                    <p><%= message.message %></p>
+                </div>
+
+                <h1>Comments:</h1>
+                <% if(message.comments.length > 0) { %>
+                    <div class="content-boxes">
+                        <h3>Comments</h3>
+                        <% for (var comment of message.comments) { %>
+                            <h3><%= comment.username %></h3>
+                            <p><%= comment.comment %></p>
+                        <% } %>
+                    <% } %>
+                    </div>
+
+                <form action="/<%= message.id %>/comment" method="POST">
+                    <h2>Enter Name</h2>
+                    <input type="text" name="username" id="username">
+
+                    <h2>Comment:</h2>
+                    <textarea name="comment" id="comment" cols="40" rows="3"></textarea>
+                    
+                    <input type="submit" value="Submit Comment">
+                </form>
+            <% } %>
+
+        <% } %>
+    </div>
+</body>
+</html>
